@@ -494,3 +494,7 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+.Home {
+  --tw-bg-opacity: 1;
+  background-color: rgb(18 52 86 / var(--tw-bg-opacity));
+}
