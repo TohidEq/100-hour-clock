@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik+Glitch&display=swap");
+
 /*
 ! tailwindcss v3.1.8 | MIT License | https://tailwindcss.com
 */
@@ -400,7 +402,7 @@ video {
   height: auto;
 }
 
-*, ::before, ::after {
+*, ::before, ::after{
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
   --tw-translate-x: 0;
@@ -447,7 +449,7 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
-::backdrop {
+::backdrop{
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
   --tw-translate-x: 0;
@@ -494,7 +496,22 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
-.Home {
-  --tw-bg-opacity: 1;
-  background-color: rgb(18 52 86 / var(--tw-bg-opacity));
+body {
+  font-family: "Rubik Glitch", cursive;
+  height: 100vh;
+  background-image: url('../img/303888.jpg');
+  background-position: center;
+}
+
+.Home{
+  display: grid;
+  height: 100vh;
+  align-content: center;
+  text-align: center;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  --tw-text-opacity: 1;
+  color: rgb(217 255 254 / var(--tw-text-opacity));
+  text-shadow: 0 0 5px #d9fffe;
+  font-variant-numeric: tabular-nums;
 }

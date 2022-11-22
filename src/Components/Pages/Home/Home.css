@@ -1,3 +1,7 @@
 .Home {
-  @apply bg-custom-color-name;
+  @apply text-4xl text-center text-custom-color-name
+    h-screen 
+    grid content-center;
+  text-shadow: 0 0 5px #d9fffe;
+  font-variant-numeric: tabular-nums;
 }

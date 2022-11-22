@@ -1,5 +1,6 @@
-import { time } from "console";
+import { read } from "fs";
 import React, { useEffect, useState } from "react";
+import { Z_ERRNO } from "zlib";
 
 type Props = {};
 
@@ -41,20 +42,34 @@ const Home = (props: Props) => {
     );
   }
 
-  const [hours, setHours] = useState<number>(
-    parseInt((currentTime() / time.new.hour).toString()) % 100
-  );
-  const [minutes, setMinutes] = useState<number>(
-    parseInt((currentTime() / time.new.minute).toString()) % 100
-  );
-  const [seconds, setSeconds] = useState<number>(
-    parseInt((currentTime() / time.new.second).toString()) % 10
-  );
+  const [hours, setHours] = useState<number>(0);
+  const [minutes, setMinutes] = useState<number>(0);
+  const [seconds, setSeconds] = useState<number>(0);
 
+  const [zeroH, setZeroH] = useState("");
+  const [zeroM, setZeroM] = useState("");
+
+  const [ready, setReady] = useState<number>(0);
+  const [isPending, setIsPending] = useState<Boolean>(true);
+
+  const zeroSetter = () => {
+    hours < 100 ? setZeroH("0") : setZeroH("");
+    if (hours < 10) setZeroH("00");
+
+    minutes < 100 ? setZeroM("0") : setZeroM("");
+    if (minutes < 10) setZeroM("00");
+  };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const tikTok = () => {
     setHours(parseInt((currentTime() / time.new.hour).toString()) % 100);
     setMinutes(parseInt((currentTime() / time.new.minute).toString()) % 100);
     setSeconds(parseInt((currentTime() / time.new.second).toString()) % 10);
+    setMinutes(99);
+    zeroSetter();
+
+    ready  ? setIsPending(false) : setReady(ready + 1);
+
+    console.log(ready);
   };
 
   useEffect(() => {
@@ -67,7 +82,14 @@ const Home = (props: Props) => {
 
   return (
     <div className="Home">
-      {hours}:{minutes}:{seconds}
+      {isPending && "Loading..."}
+      {!isPending && (
+        <>
+          {zeroH}
+          {hours}:{zeroM}
+          {minutes}:{seconds}
+        </>
+      )}
     </div>
   );
 };
