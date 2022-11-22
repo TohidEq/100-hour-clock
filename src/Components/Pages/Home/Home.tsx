@@ -67,7 +67,7 @@ const Home = (props: Props) => {
     setMinutes(99);
     zeroSetter();
 
-    ready  ? setIsPending(false) : setReady(ready + 1);
+    ready ? setIsPending(false) : setReady(ready + 1);
 
     console.log(ready);
   };
