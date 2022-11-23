@@ -53,18 +53,15 @@ const Home = (props: Props) => {
   const [isPending, setIsPending] = useState<Boolean>(true);
 
   const zeroSetter = () => {
-    hours < 100 ? setZeroH("0") : setZeroH("");
-    if (hours < 10) setZeroH("00");
+    hours < 10 ? setZeroH("0") : setZeroH("");
 
-    minutes < 100 ? setZeroM("0") : setZeroM("");
-    if (minutes < 10) setZeroM("00");
+    minutes < 10 ? setZeroM("0") : setZeroM("");
   };
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const tikTok = () => {
     setHours(parseInt((currentTime() / time.new.hour).toString()) % 100);
     setMinutes(parseInt((currentTime() / time.new.minute).toString()) % 100);
     setSeconds(parseInt((currentTime() / time.new.second).toString()) % 10);
-    setMinutes(99);
     zeroSetter();
 
     ready ? setIsPending(false) : setReady(ready + 1);
