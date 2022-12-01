@@ -72,7 +72,7 @@ const Home = (props: Props) => {
   useEffect(() => {
     const interval = setInterval(() => {
       tikTok();
-    }, 864); //"This will be called every 864 ms"
+    }, 100); //"This will be called every 100 ms"
 
     return () => clearInterval(interval);
   }, [tikTok]);
