@@ -503,7 +503,7 @@ body {
   background-position: center;
 }
 
-.Home{
+.home{
   display: grid;
   height: 100vh;
   align-content: center;
@@ -514,4 +514,19 @@ body {
   color: rgb(217 255 254 / var(--tw-text-opacity));
   text-shadow: 0 0 5px #d9fffe;
   font-variant-numeric: tabular-nums;
+}
+
+.home__content{
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  width: -moz-fit-content;
+  width: fit-content;
+  flex-wrap: nowrap;
+  text-align: center;
+}
+
+.home__content span{
+  display: block;
+  width: 14px;
 }

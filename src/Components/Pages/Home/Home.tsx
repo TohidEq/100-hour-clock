@@ -68,25 +68,33 @@ const Home = (props: Props) => {
 
     console.log(ready);
   };
-
+  
+  const [dotsPulse,setDotsPulse]=useState(true)
   useEffect(() => {
     const interval = setInterval(() => {
       tikTok();
-    }, 100); //"This will be called every 100 ms"
+      setDotsPulse(prevVal=>!prevVal)
+    }, 432); //"This will be called every 100 ms"
 
     return () => clearInterval(interval);
   }, [tikTok]);
 
   return (
-    <div className="Home">
+    <div className="home">
+      <div className="home__content">
       {isPending && "Loading..."}
       {!isPending && (
         <>
           {zeroH}
-          {hours}:{zeroM}
-          {minutes}:{seconds}
+          {hours}
+          <span>
+            {dotsPulse? ":":""}
+          </span>
+          {zeroM}{minutes}
         </>
       )}
+
+      </div>
     </div>
   );
 };

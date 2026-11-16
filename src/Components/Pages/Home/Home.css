@@ -1,7 +1,14 @@
-.Home {
+.home {
   @apply text-4xl text-center text-custom-color-name
-    h-screen 
+    h-screen
     grid content-center;
   text-shadow: 0 0 5px #d9fffe;
   font-variant-numeric: tabular-nums;
+}
+
+.home__content{
+  @apply flex flex-nowrap w-fit mx-auto text-center;
+}
+.home__content span{
+  @apply w-[14px] block;
 }
